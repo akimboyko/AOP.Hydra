@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace AOP.Hydra.PostSharp.UnitTests
@@ -35,6 +36,7 @@ namespace AOP.Hydra.PostSharp.UnitTests
             [InjectedAspect]
             public void Process()
             {
+                Console.WriteLine("Processing...");
             }
         }
     }
