@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOP.Hydra.PostSharp", "AOP.Hydra.PostSharp\AOP.Hydra.PostSharp.csproj", "{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{8778CBBE-1512-4378-AA58-A1A933D55A71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{0A299B0D-8F04-457E-91A7-34A38561FBB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOP.Hydra.PostSharp.UnitTests", "AOP.Hydra.PostSharp.UnitTests\AOP.Hydra.PostSharp.UnitTests.csproj", "{5BAF3727-FE66-465F-BCD1-25E7F90DC90D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BAF3727-FE66-465F-BCD1-25E7F90DC90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BAF3727-FE66-465F-BCD1-25E7F90DC90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BAF3727-FE66-465F-BCD1-25E7F90DC90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BAF3727-FE66-465F-BCD1-25E7F90DC90D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D} = {8778CBBE-1512-4378-AA58-A1A933D55A71}
+		{5BAF3727-FE66-465F-BCD1-25E7F90DC90D} = {0A299B0D-8F04-457E-91A7-34A38561FBB5}
+	EndGlobalSection
+EndGlobal
