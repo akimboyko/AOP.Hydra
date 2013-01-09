@@ -12,7 +12,7 @@ namespace AOP.Hydra.PostSharp
     public class TracingAspectAttribute : OnMethodBoundaryAspect
     {
         public Type AbstractFactoryType { get; set; }
-        private ILogger logger { get; set; }
+        private ILogger Logger { get; set; }
 
         /// <summary>
         /// Compiles the time validate.
@@ -62,7 +62,7 @@ namespace AOP.Hydra.PostSharp
             var abstractFactory = Activator.CreateInstance(AbstractFactoryType);
 
             // create instance of dependency
-            logger = ((IAbstractFactory<ILogger>)abstractFactory).CreateInstance();
+            Logger = ((IAbstractFactory<ILogger>)abstractFactory).CreateInstance();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace AOP.Hydra.PostSharp
         /// after the execution of <see cref="M:PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)" />.</param>
         public override void OnEntry(MethodExecutionArgs args)
         {
-            logger.Log(string.Format("OnEntry {0}.{1}(...)", args.Method.DeclaringType.FullName, args.Method.Name));
+            Logger.Log(string.Format("OnEntry {0}.{1}(...)", args.Method.DeclaringType.FullName, args.Method.Name));
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace AOP.Hydra.PostSharp
         /// is being executed and which are its arguments.</param>
         public override void OnExit(MethodExecutionArgs args)
         {
-            logger.Log(string.Format("OnExit {0}.{1}(...)", args.Method.DeclaringType.FullName, args.Method.Name));
+            Logger.Log(string.Format("OnExit {0}.{1}(...)", args.Method.DeclaringType.FullName, args.Method.Name));
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace AOP.Hydra.PostSharp
         /// is being executed and which are its arguments.</param>
         public override void OnSuccess(MethodExecutionArgs args)
         {
-            logger.Log(string.Format("OnSuccess {0}.{1}(...)", args.Method.DeclaringType.FullName, args.Method.Name));
+            Logger.Log(string.Format("OnSuccess {0}.{1}(...)", args.Method.DeclaringType.FullName, args.Method.Name));
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace AOP.Hydra.PostSharp
         /// is being executed and which are its arguments.</param>
         public override void OnException(MethodExecutionArgs args)
         {
-            logger.Log(string.Format("OnException {0}.{1}(...) Exception: {2}", args.Method.DeclaringType.FullName, args.Method.Name, args.Exception));
+            Logger.Log(string.Format("OnException {0}.{1}(...) Exception: {2}", args.Method.DeclaringType.FullName, args.Method.Name, args.Exception));
         }
     }
 }

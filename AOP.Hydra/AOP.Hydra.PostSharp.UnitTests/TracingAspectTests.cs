@@ -16,17 +16,20 @@ namespace AOP.Hydra.PostSharp.UnitTests
 
             Assert.That(result, Is.EqualTo(12));
 
-            FakeLoggerFactory.FakeLoggerInstance.Messages.Should().Contain(message => 
-                                                                            message.Contains("OnEntry")
-                                                                            && message.Contains(string.Format("{0}.Process(...)", typeof(FakeService).FullName)));
+            FakeLoggerFactory.FakeLoggerInstance.Messages
+                .Should().Contain(message => 
+                                    message.Contains("OnEntry")
+                                    && message.Contains(string.Format("{0}.Process(...)", typeof(FakeService).FullName)));
 
-            FakeLoggerFactory.FakeLoggerInstance.Messages.Should().Contain(message => 
-                                                                            message.Contains("OnExit")
-                                                                            && message.Contains(string.Format("{0}.Process(...)", typeof(FakeService).FullName)));
+            FakeLoggerFactory.FakeLoggerInstance.Messages
+                .Should().Contain(message => 
+                                    message.Contains("OnExit")
+                                    && message.Contains(string.Format("{0}.Process(...)", typeof(FakeService).FullName)));
 
-            FakeLoggerFactory.FakeLoggerInstance.Messages.Should().Contain(message => 
-                                                                            message.Contains("OnSuccess")
-                                                                            && message.Contains(string.Format("{0}.Process(...)", typeof(FakeService).FullName)));
+            FakeLoggerFactory.FakeLoggerInstance.Messages
+                .Should().Contain(message => 
+                                    message.Contains("OnSuccess")
+                                    && message.Contains(string.Format("{0}.Process(...)", typeof(FakeService).FullName)));
         }
 
         [Test]
@@ -36,17 +39,20 @@ namespace AOP.Hydra.PostSharp.UnitTests
 
             Assert.Throws<Exception>(() => fakeService.ProcessWithException(3, 4));
 
-            FakeLoggerFactory.FakeLoggerInstance.Messages.Should().Contain(message =>
-                                                                            message.Contains("OnEntry")
-                                                                            && message.Contains(string.Format("{0}.ProcessWithException(...)", typeof(FakeService).FullName)));
+            FakeLoggerFactory.FakeLoggerInstance.Messages
+                .Should().Contain(message =>
+                                    message.Contains("OnEntry")
+                                    && message.Contains(string.Format("{0}.ProcessWithException(...)", typeof(FakeService).FullName)));
 
-            FakeLoggerFactory.FakeLoggerInstance.Messages.Should().Contain(message =>
-                                                                            message.Contains("OnExit")
-                                                                            && message.Contains(string.Format("{0}.ProcessWithException(...)", typeof(FakeService).FullName)));
+            FakeLoggerFactory.FakeLoggerInstance.Messages
+                .Should().Contain(message =>
+                                    message.Contains("OnExit")
+                                    && message.Contains(string.Format("{0}.ProcessWithException(...)", typeof(FakeService).FullName)));
 
-            FakeLoggerFactory.FakeLoggerInstance.Messages.Should().Contain(message =>
-                                                                            message.Contains("OnException")
-                                                                            && message.Contains(string.Format("{0}.ProcessWithException(...)", typeof(FakeService).FullName)));
+            FakeLoggerFactory.FakeLoggerInstance.Messages
+                .Should().Contain(message =>
+                                    message.Contains("OnException")
+                                    && message.Contains(string.Format("{0}.ProcessWithException(...)", typeof(FakeService).FullName)));
         }
 
         [TracingAspect(AbstractFactoryType = typeof(FakeLoggerFactory))]
