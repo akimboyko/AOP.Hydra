@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Reflection;
 using PostSharp.Aspects;
+using PostSharp.Aspects.Dependencies;
 using PostSharp.Extensibility;
 
 namespace AOP.Hydra.PostSharp
 {
-    public interface ITransaction
-    {
-        void Begin();
-        void Commit();
-        void Rollback();
-    }
-
-    public interface IService
-    {
-        ITransaction Transaction { get; set; }
-    }
-
     [Serializable]
+    [ProvideAspectRole(StandardRoles.TransactionHandling)]
     public class InjectedAspectAttribute : MethodInterceptionAspect
     {
+        /// <summary>
+        /// Compiles the time validate.
+        /// </summary>
+        /// <param name="method">The method.</param>
+        /// <returns></returns>
         public override bool CompileTimeValidate(MethodBase method)
         {
             var result = true;
@@ -36,6 +31,10 @@ namespace AOP.Hydra.PostSharp
             return result;
         }
 
+        /// <summary>
+        /// Method invoked <i>instead</i> of the method to which the aspect has been applied.
+        /// </summary>
+        /// <param name="args">Advice arguments.</param>
         public override void OnInvoke(MethodInterceptionArgs args)
         {
             args.Proceed();

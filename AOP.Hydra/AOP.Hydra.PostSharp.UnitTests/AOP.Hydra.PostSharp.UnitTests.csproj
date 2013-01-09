@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.2.0.0.1\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -52,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InjectedAspectTests.cs" />
+    <Compile Include="TracingAspectTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequiresPostSharp.cs" />
   </ItemGroup>
@@ -59,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AOP.Hydra.DomainModel\AOP.Hydra.DomainModel.csproj">
+      <Project>{C61A3406-4710-434D-B644-10B4C70C3E79}</Project>
+      <Name>AOP.Hydra.DomainModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AOP.Hydra.PostSharp\AOP.Hydra.PostSharp.csproj">
       <Project>{E9DD77AE-40DE-47EE-8365-D9C0CF0F0F5D}</Project>
       <Name>AOP.Hydra.PostSharp</Name>

@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using PostSharp.Extensibility;
 using Rhino.Mocks;
 
 namespace AOP.Hydra.PostSharp.UnitTests
