@@ -61,7 +61,8 @@ namespace AOP.Hydra.PostSharp
             // create instance of Abstract Factory
             var abstractFactory = Activator.CreateInstance(AbstractFactoryType);
 
-            // create instance of dependency
+            // create an instance of dependency, only instances of IAbstractFactory<ILogger> could be here
+            // proven by CompileTimeValidate method
             Logger = ((IAbstractFactory<ILogger>)abstractFactory).CreateInstance();
         }
 
