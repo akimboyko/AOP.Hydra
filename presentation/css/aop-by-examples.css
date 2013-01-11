@@ -245,6 +245,14 @@ a:focus {
     line-height: 1;
 }
 
+#AopExamples h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
+
 .hint {
     display: none;
     
