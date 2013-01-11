@@ -52,7 +52,7 @@
     </div>
 
     <div id="StackOverflowAboutAop" class="step" data-x="+4000" data-y="0" data-rotate="0" data-scale="1">
-        <img src="images\aspect-oriented-stackoverflow.png" />
+        <img src="images\aspect-oriented-stackoverflow.png" width="800px"/>
     </div>
 
     <div id="WhenToApplyAOP" class="step" data-x="+5500" data-y="0" data-rotate="-90" data-scale="1">
@@ -85,6 +85,12 @@
             <li>Managing transactions</li>
         </ul>
     </div>
+
+    <div id="DemoPrototypeTangledAspects" class="step" data-x="+6150" data-y="+400" data-rotate="0" data-scale="1">
+        <a href='images/prototype → tangled → aspects.png' class="code">
+            Demo #0: prototype → tangled → aspects
+        </a>
+    </div>  
 
     <div id="CrossCuttingConcernsAndCodeSymptomsOverview" class="step" data-x="+6150" data-y="0" data-rotate="0" data-scale="1">
     </div>  
@@ -170,6 +176,7 @@
     </div>
 
     <div id="AopExamplesDetails" class="step" data-x="+14500" data-y="0" data-scale="1">
+        <h1 class="demo">Demo #4</h1>
         <ul>
             <li>Authorization/Authentication</li>
             <li>Parameters Validation</li>
@@ -178,7 +185,75 @@
             <li>Inject dependencies into aspect</li>
             <li>Architecture Validation</li>
             <li>Modify external libraries calls</li>
-            <li class="demo">Demo #4</li>
+        </ul>
+    </div>
+
+    <div id="AopExamplesOthers" class="step" data-x="+15500" data-y="0" data-scale="1">
+        <strong>Other examples</strong>
+        <ul>
+            <li>Declarative threading</li>
+            <li>Circuit breaker</li>
+            <li>Deadlocks detection</li>
+            <li>Error handling</li>
+            <li>… and a lot more</li>
+        </ul>
+    </div>
+
+    <div id="PostCompileVsRuntime" class="step" data-x="+16000" data-y="0" data-rotate="-90" data-scale="1">
+        <h1>Post-compile vs. Runtime</h1>
+    </div>
+
+    <div id="PostCompileVsRuntimeAopBullets" class="step" data-x="+16500" data-y="0" data-scale="1">
+        <strong>PostSharp vs. Castle Dynamic Proxy</strong>
+        <ul>
+            <li><strong>Run-time performance</strong></li>
+            <li><strong>Interception</strong></li>
+            <li>Interface/virtual functions</li>
+            <li>No need to recompile</li>
+            <li><strong>Post-compilation</strong></li>
+            <li>WCF services and WPF forms, no way to hide behind proxy</li>
+            <li>Lack of information during compile-time</li>
+        </ul>
+    </div>
+
+    <div id="AopAndTesting" class="step" data-x="+17500" data-y="0" data-rotate="-90" data-scale="1">
+        <h1>AOP and testing</h1>
+    </div>
+
+    <div id="AopAndTestingBullets" class="step" data-x="+18000" data-y="0" data-scale="1">
+        <ul>
+            <li>Testing of separate aspects in isolation</li>
+            <li>Testing of aspect composition and configuration</li>
+            <li>Post-compilation: Need to manually create classes to apply aspects</li>
+        </ul>
+    </div>
+
+    <div id="AopAsAntiPatter" class="step" data-x="+19000" data-y="0" data-rotate="-90" data-scale="1">
+        <h1>AOP as anti-patter and alternatives</h1>
+    </div>
+
+    <div id="AopAsAntiPatterBullets" class="step" data-x="+19500" data-y="0" data-scale="1">
+        <ul>
+            <li>Black magic or silver bullet? Neither!</li>
+            <li>AOP vs. Dependency Injection</li>
+            <li>AOP Weaver vs. Interfaces Decoration</li>
+            <li>Aspects vs. Convension over Configuration</li>
+            <li>B/L in AOP</li>
+            <li>CI server integration</li>
+        </ul>
+    </div>
+
+    <div id="ResourcesAboutAop" class="step" data-x="+20500" data-y="0" data-rotate="-90" data-scale="1">
+        <h1>Resources</h1>
+    </div>
+
+    <div id="ResourcesAboutAopList" class="step" data-x="+21000" data-y="0" data-scale="1">
+        <ul>
+            <li><a href='http://cseweb.ucsd.edu/~wgg/CSE218/aop-ecoop97.pdf'>Aspect-Oriented Programming by Gregor Kiczales</a></li>
+            <li><a href='http://www.manning.com/groves/'>AOP in .NET by Matthew D. Groves</a></li>
+            <li><a href='http://www.manning.com/seemann/'>Dependency Injection in .NET by Mark Seemann</a></li>
+            <li><a href='http://www.dotnetrocks.com/'>.Net Rocks! podcasts: AOP at NDC; PostSharp</a></li>
+            <li><a href='http://www.hanselminutes.com/213/aspect-oriented-programming-aop-and-linfu-with-philip-laureano'>The Hanselminutes Podcast #213: LinFu with Philip Laureano</a></li>
         </ul>
     </div>
 

@@ -170,12 +170,12 @@ a:focus {
 }
 
 .code {
-    font-family:Consolas, monospace;
+    font-family: Consolas, monospace;
     font-size: 20px;
 }
 
 .demo {
-    font-family:Consolas, monospace;
+    font-family: Consolas, monospace;
     font-weight:bold;
     color: red;
 }
@@ -208,6 +208,13 @@ a:focus {
     font-size: 60px;
     color: red;
     line-height: 1;
+}
+
+#DemoPrototypeTangledAspects a {
+    font-family: Consolas, monospace;
+    font-weight:bold;
+    color: red;
+    font-size: 30px;
 }
 
 #AOPwoAOP {
@@ -246,6 +253,38 @@ a:focus {
 }
 
 #AopExamples h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
+
+#PostCompileVsRuntime h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
+
+#AopAndTesting h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
+
+#AopAsAntiPatter h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
+
+#ResourcesAboutAop h1 {
     width: 800px;
     text-align: center;
     font-size: 60px;
