@@ -7,17 +7,24 @@
 
 void Main()
 {
+    #region define proxy
     ProxyGenerator proxyGenerator = CreateProxyGenerator();
     
     IService proxy = 
         proxyGenerator
             .CreateClassProxy<Service>(new TracingInterceptorAspect());
+    #endregion
             
+    #region processing
     proxy.ProcessRequest();
+    #endregion
    
+    #region save proxy to reuse
     proxyGenerator.ProxyBuilder.ModuleScope.SaveAssembly(false);
+    #endregion
 }
 
+#region service
 public interface IService   
 {
     void ProcessRequest();
@@ -30,7 +37,9 @@ public class Service : IService
         string.Format("{0} call ProcessRequest", GetType().FullName).Dump();
     }
 }
+#endregion
 
+#region interceptor
 public class TracingInterceptorAspect : IInterceptor
 {
     public void Intercept(IInvocation invocation)
@@ -40,10 +49,11 @@ public class TracingInterceptorAspect : IInterceptor
         invocation.Proceed();
         
         string.Format("After {0} call ProcessRequest", invocation.TargetType).Dump();
-        
     }
 }
+#endregion
 
+#region create proxy generator
 // How to persis proxy: http://kozmic.pl/2009/08/25/castle-dynamic-proxy-tutorial-part-xiv-persisting-proxies/
 public static ProxyGenerator CreateProxyGenerator()
 {
@@ -57,3 +67,4 @@ public static ProxyGenerator CreateProxyGenerator()
     
     return new ProxyGenerator(new DefaultProxyBuilder(scope));
 }
+#endregion

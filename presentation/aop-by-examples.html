@@ -28,7 +28,7 @@
 <div id="impress">
 
     <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <h1><font color="red">A</font>spect-<br/><font color="red">O</font>riented<br/><font color="red">P</font>rogramming</h1>
+        <h1><font class="red">A</font>spect-<br/><font class="red">O</font>riented<br/><font class="red">P</font>rogramming</h1>
         <p>by examples</p>
         <p align='right'>@AkimBoyko</p>
     </div>
@@ -108,6 +108,7 @@
                 </ul>
             </li>
             <li><strong>Code Contract</strong></li>
+            <li class="demo">Demo #1</li>
         </ul>
     </div>
 
@@ -119,8 +120,45 @@
         <ul>
             <li><strong>Decorator</strong>: extend an instance without changing class</li>
             <li><strong>Proxy</strong>: substitute initial instance</li>
-            <li>Demo #1</li>
+            <li class="demo">Demo #2</li>
         </ul>
+    </div>
+
+    <div id="SolidAndDry" class="step" data-x="+8000" data-y="0" data-rotate="0" data-scale="1">
+        <div>
+            <ul>
+                <li><strong><font class="red">S</font>ingle responsibility</strong></li>
+                <li><strong><font class="red">O</font>pen/closed</strong></li>
+                <li><strong><font class="red">L</font>iskov substitution</strong></li>
+                <li><em><strike><font class="red">I</font>nterface segregation</strike></em></li>
+                <li><font class="red">D</font>ependency inversion</li>
+                <li><strong><font class="red">D</font>on't&nbsp;<font class="red">R</font>epeat&nbsp;<font class="red">Y</font>ourself</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="AopComponents" class="step" data-x="+9000" data-y="0" data-rotate="-90" data-scale="1">
+        <h1>AOP components</h1>
+    </div>
+
+    <div id="AopPartsDetails" class="step" data-x="+9500" data-y="0" data-scale="1">
+        <ul>
+            <li><strong>Component language</strong></li>
+            <li><strong>Aspect language</strong></li>
+            <li><strong>Aspect weaver</strong></li>
+            <li><strong>Aspect life time</strong></li>
+            <li class="demo">Demo #3: Aspect, IL and weaving and Dynaminc Interceptor</li>
+        </ul>
+    </div>
+
+    <div id="AopPartsInPractice" class="step" data-x="+10500" data-y="0" data-scale="1">
+        <ul>
+            <li>Describe the <strong>transformation</strong>.</li>
+            <li><strong>Apply</strong> the transformation to the business code.</li>
+            <li>Because there are <strong>two phases</strong> we <strong>separate</strong> all the aspect code from the business code.
+                Get nice <strong>separation of concerns</strong> and principally nice business code.</li>
+        </ul>
+        <p align='right'>Gael Fraiteur</p>
     </div>
 
 </div>

@@ -165,9 +165,19 @@ a:focus {
     white-space: nowrap;
 }
 
+.red {
+    color: red;
+}
+
 .code {
     font-family:Consolas, monospace;
     font-size: 20px;
+}
+
+.demo {
+    font-family:Consolas, monospace;
+    font-weight:bold;
+    color: red;
 }
 
 #title {
@@ -220,6 +230,14 @@ a:focus {
 }
 
 #PoorMansAOP h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
+
+#AopComponents h1 {
     width: 800px;
     text-align: center;
     font-size: 60px;
