@@ -212,13 +212,20 @@ a:focus {
     line-height: 1;
 }
 
-#overview { display: none }
+#CrossCuttingConcernsAndCodeSymptomsOverview { display: none }
 
-.impress-on-overview .step {
+.impress-on-CrossCuttingConcernsAndCodeSymptomsOverview .step {
     opacity: 1;
     cursor: pointer;
 }
 
+#PoorMansAOP h1 {
+    width: 800px;
+    text-align: center;
+    font-size: 60px;
+    color: red;
+    line-height: 1;
+}
 
 .hint {
     display: none;

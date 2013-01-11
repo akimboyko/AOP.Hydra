@@ -1,18 +1,102 @@
 <Query Kind="Program">
+  <NuGetReference>NUnit</NuGetReference>
+  <Namespace>NUnit.Framework</Namespace>
   <IncludePredicateBuilder>true</IncludePredicateBuilder>
 </Query>
 
+#region Step #2: usage examples
 void Main()
 {
-    TraceDecorator.Aspect(() => StaticLogic.SuccessfulCall());
-    TraceDecorator.Aspect(() => StaticLogic.ExceptionCall());
-    TraceDecorator.Aspect(() => StaticLogic.SuccessfulCallWithReturn(42)).Dump();
-    TraceDecorator.Aspect(() => StaticLogic.ExceptionCallWithReturn(42)).Dump();
-}
+    var toDecorate = false;
 
-public static class TraceDecorator
+    ILogicImplementation example01 = toDecorate
+        ?  new TraceDecorator()
+        :  new LogicImplementation();
+
+    Assert.That(example01, Is.InstanceOf<ILogicImplementation>());
+
+    example01.SuccessfulCall();
+    example01.ExceptionCall();
+    example01.SuccessfulCallWithReturn(42).Dump();
+    example01.ExceptionCallWithReturn(42).Dump();
+}
+#endregion
+
+#region Step #1a: target interface
+public interface ILogicImplementation
 {
-    public static T Aspect<T>(Func<T> func)
+    void SuccessfulCall();
+    void ExceptionCall();
+    string SuccessfulCallWithReturn(int input);
+    string ExceptionCallWithReturn(int input);
+}
+#endregion
+
+#region Step #1b: target implementation
+public class LogicImplementation : ILogicImplementation
+{
+    public virtual void SuccessfulCall()
+    {
+    }
+    
+    public virtual void ExceptionCall()
+    {   
+        throw new Exception();
+    }
+    
+    public virtual string SuccessfulCallWithReturn(int input)
+    {
+        return string.Format("ok: input {0}", input);
+    }
+    
+    public virtual string ExceptionCallWithReturn(int input)
+    {   
+        throw new Exception();
+    }
+}
+#endregion
+
+#region Step #3: Handwritten decorator
+public class TraceDecorator : LogicImplementation
+{
+    #region Step #2.1: overrides
+    public override void SuccessfulCall()
+    {
+        LogMethodName();
+        LogException(() => base.SuccessfulCall());
+    }
+    
+    public override void ExceptionCall()
+    {   
+        LogMethodName();
+        LogException(() => base.ExceptionCall());
+    }
+    
+    public override string SuccessfulCallWithReturn(int input)
+    {
+        LogMethodName();
+        return LogException(() => base.SuccessfulCallWithReturn(input));
+    }
+    
+    public override string ExceptionCallWithReturn(int input)
+    {   
+        LogMethodName();
+        return LogException(() => base.ExceptionCallWithReturn(input));
+    }
+    #endregion
+
+    #region Step #2.2: tracing, but mostly without call context
+    private static void LogMethodName()
+    {
+        var stackTrace = new StackTrace();
+        var stackFrame = stackTrace.GetFrame(1);
+
+        MethodBase currentMethodName = stackFrame.GetMethod();
+        
+        currentMethodName.Dump();
+    }
+    
+    private static T LogException<T>(Func<T> func)
     {
         try
         {
@@ -26,7 +110,7 @@ public static class TraceDecorator
         }    
     }
     
-    public static void Aspect(Action func)
+    private static void LogException(Action func)
     {
         try
         {
@@ -40,28 +124,8 @@ public static class TraceDecorator
     
     private static void LogException(Exception ex)
     {
-        Console.WriteLine("Traced by TraceDecorator: {0}", ex);
+        string.Format("Traced by TraceDecorator: {0}", ex.Message).Dump();
     }
+    #endregion
 }
-
-public static class StaticLogic
-{
-    public static void SuccessfulCall()
-    {
-    }
-    
-    public static void ExceptionCall()
-    {   
-        throw new Exception();
-    }
-    
-    public static string SuccessfulCallWithReturn(int input)
-    {
-        return string.Format("ok: input {0}", input);
-    }
-    
-    public static string ExceptionCallWithReturn(int input)
-    {   
-        throw new Exception();
-    }
-}
+#endregion
