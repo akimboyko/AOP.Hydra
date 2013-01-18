@@ -7,11 +7,11 @@
 #region Step #2: usage examples
 void Main()
 {
-    var toDecorate = false;
+    var packWithProxy = false;
 
     ILogicImplementation example02 = new LogicImplementation();
 
-    if(toDecorate)
+    if(packWithProxy)
     {
         example02 = new TraceProxy(example02);
     }
