@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InjectedAspectTests.cs" />
+    <Compile Include="InjectionAspectWithCallbackAttributeTests.cs" />
     <Compile Include="TracingAspectTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequiresPostSharp.cs" />
